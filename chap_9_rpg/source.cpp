@@ -59,7 +59,7 @@ typedef struct {
     int mp;                 // [4-1-3]MP
     int maxMp;              // [4-1-4]最大MP
     int attack;             // [4-1-5]攻撃力
-    char name[4 * 2 + 1];   // [4-1-6]名前
+    char name[8 * 2 + 1];   // [4-1-6]名前
     char aa[256];           // [4-1-7]アスキーアート
     int command;            // [4-1-8]コマンド
     int target;             // [4-1-9]攻撃対象
@@ -113,7 +113,7 @@ CHARACTER monsters[MONSTER_MAX] =
 CHARACTER characters[CHARACTER_MAX];
 
 // [5-3]コマンドの名前を宣言する
-char commandNames[COMMAND_MAX][4 * 2 + 1] = {
+char commandNames[COMMAND_MAX][8 * 2 + 1] = {
     "たたかう", // [5-3-1]COMMAND_FIGHT 戦う
     "じゅもん", // [5-3-2]COMMAND_SPELL 呪文
     "にげる"    // [5-3-3]COMMAND_RUN   逃げる
