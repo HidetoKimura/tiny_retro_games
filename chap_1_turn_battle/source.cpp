@@ -180,7 +180,7 @@ void SelectCommand()
         }
 
         // [6-3-10]入力されたキーによって分岐する
-        switch (getch())
+        switch (_getch())
         {
         case 'w':   // [6-3-11]wキーが押されたら
 
@@ -225,7 +225,7 @@ void Battle(int _monster)
     printf("%sが　あらわれた！\n", characters[CHARACTER_MONSTER].name);
 
     // [6-4-6]キーボード入力を待つ
-    getch();
+    _getch();
 
     // [6-4-7]戦闘が終了するまでループする
     while (1)
@@ -248,7 +248,7 @@ void Battle(int _monster)
                 printf("%sの　こうげき！\n", characters[i].name);
 
                 // [6-4-14]キーボード入力を待つ
-                getch();
+                _getch();
 
                 // [6-4-15]敵に与えるダメージを計算する
                 int damage = 1 + rand() % characters[i].attack;
@@ -272,7 +272,7 @@ void Battle(int _monster)
                     damage);
 
                 // [6-4-21]キーボード入力を待つ
-                getch();
+                _getch();
 
                 break;
             }
@@ -285,7 +285,7 @@ void Battle(int _monster)
                     printf("ＭＰが　たりない！\n");
 
                     // [6-4-25]キーボード入力を待つ
-                    getch();
+                    _getch();
 
                     // [6-4-26]呪文を唱える処理を抜ける
                     break;
@@ -301,7 +301,7 @@ void Battle(int _monster)
                 printf("%sは　ヒールを　となえた！\n", characters[i].name);
 
                 // [6-4-30]キーボード入力を待つ
-                getch();
+                _getch();
 
                 // [6-4-31]HPを回復させる
                 characters[i].hp = characters[i].maxHp;
@@ -313,7 +313,7 @@ void Battle(int _monster)
                 printf("%sのきずが　かいふくした！\n", characters[i].name);
 
                 // [6-4-34]キーボード入力を待つ
-                getch();
+                _getch();
 
                 break;
 
@@ -323,7 +323,7 @@ void Battle(int _monster)
                 printf("%sは　にげだした！\n", characters[i].name);
 
                 // [6-4-37]キーボード入力を待つ
-                getch();
+                _getch();
 
                 // [6-4-38]戦闘処理を抜ける
                 return;
@@ -349,7 +349,7 @@ void Battle(int _monster)
                 case CHARACTER_MONSTER:
 
                     // [6-4-44]モンスターのアスキーアートを何も表示しないように書き換える
-                    strcpy(characters[characters[i].target].aa, "\n");
+                    strcpy_s(characters[characters[i].target].aa, "\n");
 
                     // [6-4-45]戦闘シーンの画面を再描画する関数を呼び出す
                     DrawBattleScreen();
@@ -361,7 +361,7 @@ void Battle(int _monster)
                 }
 
                 // [6-4-47]キーボード入力を待つ
-                getch();
+                _getch();
 
                 // [6-4-48]戦闘シーンの関数を抜ける
                 return;
